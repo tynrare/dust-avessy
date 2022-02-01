@@ -1,30 +1,28 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	 <meta charset="UTF-8">
-	 <title>avessy ▮</title>
+    <meta charset="UTF-8">
+    <title>avessy ▮</title>
 </head>
 
 <!-- # Body -->
 
-<body
-style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;"
-	unselectable="on"
-	onselectstart="return false;"
-	onmousedown="return false;"
->
+<body style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" unselectable="on" onselectstart="return false;" onmousedown="return false;">
 
-	<div id='tyndustre-container-0' class="pair-container-centered_dust-0">
-	  <div id="tyndustre-element-0" class="pair-element-centered_dust-0">
-		  <a>А в этих 🧃🧃🧃</a>
-		  <a>сильный яд;</a>
-		  <a>по тем скорбят.</a>
-		  <a>кто их попил</a>
-		  <a> — </a>
-		  <kbd>CTRL + ENTER</kbd>
-		  <div><a></a></div>
-		</div>
-	</div>
+    <div id='tyndustre-container-0' class="pair-container-centered_dust-0">
+        <div id="tyndustre-element-0" class="pair-element-centered_dust-0">
+            <a>А в этих 🧃🧃🧃</a>
+            <a>сильный яд;</a>
+            <a>по тем скорбят.</a>
+            <a>кто их попил</a>
+            <a> — </a>
+            <kbd>CTRL + ENTER</kbd>
+            <div>
+                <a></a>
+            </div>
+        </div>
+    </div>
 
 </body>
 
@@ -33,143 +31,153 @@ style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; 
 <!-- ## Page style -->
 
 <style>
-
-	body {
-		--dust-color-0: #455460;
-		--dust-color-1: #4cedd2;
-
-	  font-size: 2.7vw;
-	  font-family: 'Comfortaa', cursive;
-	  margin: 0;
-	}
-
-	kbd {
-		font-size: 0.3em;
-		border: 2px solid var(--dust-color-1);
-		width: max-content;
-		border-radius: 3px;
-		padding: 0.3em;
-		margin: 0.5em;
-		opacity: 0.5;
-	}
-
-	.pair-container-centered_dust-0 {
-		display: flex;
-		margin: 0;
-		width: 100vw;
-		height: 100vh;
-		overflow: clip;
-		background-color: var(--dust-color-0);
-	}
-
-	.pair-element-centered_dust-0 {
-		margin: auto;
-		color:  var(--dust-color-1);
-		display: flex;
-		flex-direction: column;
-		gap: 0.3em;
-	}
-
-	.dump-element-centered-0 {
-	  position: absolute;
-	  top: 50%;
-	  left: 50%;
-	  transform: translate(-50%, -50%);
-	  margin: 0;
-	}
+    body {
+        --dust-color-0: #455460;
+        --dust-color-1: #4cedd2;
+        font-size: 2.7vw;
+        font-family: 'Comfortaa', cursive;
+        margin: 0;
+    }
+    
+    kbd {
+        font-size: 0.3em;
+        border: 2px solid var(--dust-color-1);
+        width: max-content;
+        border-radius: 3px;
+        padding: 0.3em;
+        margin: 0.5em;
+        opacity: 0.5;
+    }
+    
+    .pair-container-centered_dust-0 {
+        display: flex;
+        margin: 0;
+        width: 100vw;
+        height: 100vh;
+        overflow: clip;
+        background-color: var(--dust-color-0);
+    }
+    
+    .pair-element-centered_dust-0 {
+        margin: auto;
+        color: var(--dust-color-1);
+        display: flex;
+        flex-direction: column;
+        gap: 0.3em;
+    }
+    
+    .dump-element-centered-0 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin: 0;
+    }
 </style>
 
 
 <!-- # Logic -->
 
 <script>
-// encapsulate
-(function () {
+    // encapsulate
+    (function() {
 
-// init
-const pageroot = document.getElementById('tyndustre-container-0');;
-const pagelement = document.getElementById('tyndustre-element-0');
-var palette; //.postinit
+        // init
+        const pageroot = document.getElementById('tyndustre-container-0');;
+        const pagelement = document.getElementById('tyndustre-element-0');
+        var palette; //.postinit
 
-function main() {
-	window.addEventListener('keypress', onkeypress)
-	window.addEventListener('click', _onclick)
-	window.addEventListener('paste', _onpaste);
-}
+        function main() {
+            window.addEventListener('keypress', onkeypress)
+            window.addEventListener('keydown', onkeydown)
+            window.addEventListener('click', _onclick)
+            window.addEventListener('paste', _onpaste);
+        }
 
-main();
+        main();
 
-function onkeypress(keyboardEvent) {
-	switch (keyboardEvent.key) {
-		case 'Enter': 
-			if (keyboardEvent.ctrlKey) {
-				resetInput();
-			} 
+        function onkeypress(keyboardEvent) {
+            switch (keyboardEvent.key) {
+                case 'Enter':
+                    if (keyboardEvent.ctrlKey) {
+                        resetInput();
+                    }
 
-			insertNewLine();
-			randomizePallete();
-			break;
-		default:
-			insertText(keyboardEvent.key);
-			break;
-	}
-}
+                    insertNewLine();
+                    randomizePallete();
+                    break;
+                default:
+                    insertText(keyboardEvent.key);
+                    break;
+            }
+        }
+
+        function onkeydown(keyboardEvent) {
+            if (keyboardEvent.key && keyboardEvent.ctrlKey) {
+                resetInput();
+                insertNewLine();
+                randomizePallete();
+            }
+        }
 
 
-function resetInput() {
-	pagelement.innerHTML = '';
-}
+        function resetInput() {
+            pagelement.innerHTML = '';
+        }
 
-function insertNewLine() {
-	const bar = pagelement.querySelector('b');
-	if (bar) bar.parentElement.removeChild(bar);
+        function insertNewLine() {
+            const bar = pagelement.querySelector('b');
+            if (bar) bar.parentElement.removeChild(bar);
 
-	pagelement.innerHTML += '<div><a></a><b>▮</b></div>'
-}
+            pagelement.innerHTML += '<div><a></a><b>▮</b></div>'
+        }
 
-function insertText(text) {
-	const insert = pagelement.lastChild.firstChild;
-	if (insert) {
-		insert.innerHTML += text;
-	}
-}
+        function insertText(text) {
+            const insert = pagelement.lastChild.firstChild;
+            if (insert) {
+                insert.innerHTML += text;
+            }
+        }
 
-function randomizePallete() {
-	if (!palette) {
-		_loadPalette();
-	}
+        function randomizePallete() {
+            if (!palette) {
+                _loadPalette();
+            }
 
-	const colors = palette.length;
-	const colorA = Math.round(Math.random() * colors);
-	const colorB = Math.round(Math.random() * colors);
+            const colors = palette.length;
+            const colorA = Math.round(Math.random() * colors);
+            const colorB = Math.round(Math.random() * colors);
 
-	if (colorA == colorB) { randomizePallete(); return; }
+            if (colorA == colorB) {
+                randomizePallete();
+                return;
+            }
 
-	document.body.style.setProperty("--dust-color-0", "#" + palette[colorA]);
-	document.body.style.setProperty("--dust-color-1", "#" + palette[colorB]);
-}
+            document.body.style.setProperty("--dust-color-0", "#" + palette[colorA]);
+            document.body.style.setProperty("--dust-color-1", "#" + palette[colorB]);
+        }
 
-function _onclick() {
-	randomizePallete();
-}
+        function _onclick() {
+            randomizePallete();
+        }
 
-function _onpaste() {
-	let paste = (event.clipboardData || window.clipboardData).getData('text');
+        function _onpaste() {
+            let paste = (event.clipboardData || window.clipboardData).getData('text');
 
-	if (!paste.length) {
-		insertText('🍍');
-		return;
-	}
+            if (!paste.length) {
+                insertText('🍍');
+                return;
+            }
 
-	insertText(paste);
-}
+            insertText(paste);
+        }
 
-function _loadPalette() {
-	palette = document.getElementById("DB").getAttribute("palette");
-	palette = palette.split('\n'); // Array[32]. Palette from https://lospec.com/palette-list/pineapple-32
-}
+        function _loadPalette() {
+            palette = document.getElementById("DB").getAttribute("palette");
+            palette = palette.split('\n'); // Array[32]. Palette from https://lospec.com/palette-list/pineapple-32
+        }
 
-})();
+    })();
 </script>
 
 <!--
@@ -180,7 +188,7 @@ function _loadPalette() {
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&display=swap" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&display=swap" rel="stylesheet">
 
 
 </html>
@@ -188,8 +196,7 @@ function _loadPalette() {
 
 <!-- # tyndata storage -->
 
-<meta id="DB"
-palette="43002a
+<meta id="DB" palette="43002a
 890027
 d9243c
 ff6157
@@ -220,8 +227,5 @@ bfc3c6
 ffe0dc
 ff88a9
 c03b94
-601761"
-
-id="DUSTDB"
->
+601761" id="DUSTDB">
 </meta>
